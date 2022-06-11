@@ -1,10 +1,11 @@
+# ArgoCD Base
 ARG ARGOCD_VERSION="v2.4.0"
+FROM argoproj/argocd:$ARGOCD_VERSION
+
+# Dependencies versions
 ARG SOPS_VERSION="3.7.3"
 ARG HELM_SECRETS_VERSION="3.14.0"
 ARG KUBECTL_VERSION="1.24.0"
-
-# ArgoCD Base
-FROM argoproj/argocd:$ARGOCD_VERSION
 
 # In case wrapper scripts are used, HELM_SECRETS_HELM_PATH needs to be the path of the real helm binary
 ENV HELM_SECRETS_HELM_PATH=/usr/local/bin/helm \
