@@ -40,20 +40,11 @@ jobs:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
 
-      - name: Setup Env
-        run: |
-          DOCKER_BUILD_LDFLAGS="$(hack/version.sh)"
-          echo 'DOCKER_BUILD_LDFLAGS<<EOF' >> $GITHUB_ENV
-          echo $DOCKER_BUILD_LDFLAGS >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-
       - name: Build and push argocd image
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          build-args: |
-            LDFLAGS=${{ env.DOCKER_BUILD_LDFLAGS }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
