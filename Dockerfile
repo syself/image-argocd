@@ -12,13 +12,6 @@ ARG HELM_DIFF_VERSION=3.5.0
 ARG HELM_SECRETS_VERSION="3.14.0"
 ARG KUBECTL_VERSION="1.24.1"
 
-# In case wrapper scripts are used, HELM_SECRETS_HELM_PATH needs to be the path of the real helm binary
-ENV HELM_SECRETS_HELM_PATH=/usr/local/bin/helm \
-  HELM_PLUGINS="/home/argocd/.local/share/helm/plugins/" \
-  HELM_SECRETS_VALUES_ALLOW_SYMLINKS=false \
-  HELM_SECRETS_VALUES_ALLOW_ABSOLUTE_PATH=false \
-  HELM_SECRETS_VALUES_ALLOW_PATH_TRAVERSAL=false
-
 USER root
 
 # Download OS dependencies
@@ -56,3 +49,10 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version v${HELM
   helm plugin install https://github.com/jkroepke/helm-secrets --version v${HELM_SECRETS_VERSION} && \
   helm plugin install https://github.com/mumoshu/helm-x  && \
   helm plugin install https://github.com/aslafy-z/helm-git.git
+
+# In case wrapper scripts are used, HELM_SECRETS_HELM_PATH needs to be the path of the real helm binary
+ENV HELM_SECRETS_HELM_PATH=/usr/local/bin/helm \
+  HELM_PLUGINS="/home/argocd/.local/share/helm/plugins/" \
+  HELM_SECRETS_VALUES_ALLOW_SYMLINKS=false \
+  HELM_SECRETS_VALUES_ALLOW_ABSOLUTE_PATH=false \
+  HELM_SECRETS_VALUES_ALLOW_PATH_TRAVERSAL=false
