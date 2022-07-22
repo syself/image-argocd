@@ -1,5 +1,5 @@
 # ArgoCD Base
-ARG ARGOCD_VERSION="v2.4.0"
+ARG ARGOCD_VERSION="v2.4.7"
 FROM argoproj/argocd:$ARGOCD_VERSION
 
 # Dependencies versions
