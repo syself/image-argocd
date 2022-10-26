@@ -54,7 +54,7 @@ jobs:
     name: Create draft release
     runs-on: ubuntu-latest
     needs:
-      - manager-image
+      - argocd-image
     steps:
       - name: Set env
         run: echo "RELEASE_TAG=${GITHUB_REF:10}" >> $GITHUB_ENV
