@@ -16,7 +16,7 @@ ARG HELM_DIFF_VERSION=3.6.0
 # renovate: datasource=github-tags depName=jkroepke/helm-secrets extractVersion=^v(?<version>.*)$
 ARG HELM_SECRETS_VERSION=3.15.0
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ARG KUBECTL_VERSION=1.24.1
+ARG KUBECTL_VERSION=1.25.3
 
 USER root
 
