@@ -1,6 +1,12 @@
 # ArgoCD Image with Helmfile
 This repo contains the Dockerfile for ArgoCD with Helmfile support.
 
+## Usage
+
+Image Repo: `quay.io/syself/argocd:latest`
+
+https://quay.io/repository/syself/argocd
+
 
 ## Release Process
 
