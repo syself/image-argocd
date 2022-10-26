@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "config:base",
+    "docker:enableMajor",
+    ":disableRateLimiting",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    "group:monorepos",
+    "group:recommended",
+    "github>whitesource/merge-confidence:beta",
+  ],
+  "platform": "github",
+  "onboarding": false,
+  "requireConfig": "ignored",
+  "timezone": "Europe/Berlin",
+  // repo config
+  "repositories": ["syself/image-argocd"],
+  "ignorePaths": [],
+  "username": "syself-bot[bot]",
+  "gitAuthor": "syself-bot[bot] <115953087+syself-bot[bot]@users.noreply.github.com>",
+  // PR config
+  "dependencyDashboardTitle": "Dependency Dashboard 🤖",
+  "dependencyDashboardHeader": "",
+  "prFooter": "",
+  "suppressNotifications": ["prIgnoreNotification"],
+  "rebaseWhen": "conflicted",
+  "commitBodyTable": true,
+  "commitMessagePrefix": ":seedling: ",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "commitMessageSuffix": "",
+  "regexManagers": [
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": [
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( extractVersion=(?<extractVersion>.+?))?( versioning=(?<versioning>.*?))?\\s.*?_VERSION=(?<currentValue>.*)\\s"
+      ],
+      "extractVersionTemplate":"{{#if extractVersion}}{{{extractVersion}}}{{/if}}",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ]
+}

@@ -1,16 +1,22 @@
 # ArgoCD Base
-ARG ARGOCD_VERSION="v2.4.7"
-FROM argoproj/argocd:$ARGOCD_VERSION
+FROM argoproj/argocd:v2.4.7
 
 # Dependencies versions
-ARG HELMFILE_VERSION=v0.144.0
+
+# renovate: datasource=github-tags depName=helmfile/helmfile extractVersion=^v(?<version>.*)$
+ARG HELMFILE_VERSION=v0.146.0
+# renovate: datasource=github-tags depName=helm/helm
 ARG HELM_VERSION=v3.9.0
 ARG HELM_LOCATION="https://get.helm.sh"
 ARG HELM_FILENAME="helm-${HELM_VERSION}-linux-amd64.tar.gz"
-ARG SOPS_VERSION="3.7.3"
+# renovate: datasource=github-tags depName=mozilla/sops
+ARG SOPS_VERSION=3.7.3
+# renovate: datasource=github-tags depName=databus23/helm-diff extractVersion=^v(?<version>.*)$
 ARG HELM_DIFF_VERSION=3.5.0
-ARG HELM_SECRETS_VERSION="3.14.0"
-ARG KUBECTL_VERSION="1.24.1"
+# renovate: datasource=github-tags depName=jkroepke/helm-secrets extractVersion=^v(?<version>.*)$
+ARG HELM_SECRETS_VERSION=3.14.0
+# renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
+ARG KUBECTL_VERSION=1.24.1
 
 USER root
 
@@ -22,8 +28,8 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Download helmfile
-RUN wget https://github.com/roboll/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_linux_amd64 && \
-  mv helmfile_linux_amd64 /usr/local/bin/helmfile && \
+RUN curl -fsSL "helmfile" https://github.com/helmfile/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_${HELMFILE_VERSION}_linux_amd64.tar.gz | tar -xzv helmfile && \
+  mv helmfile /usr/local/bin/helmfile && \
   chmod +x /usr/local/bin/helmfile
 
 # Download helm

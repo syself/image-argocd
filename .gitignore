@@ -1,0 +1,20 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# editor and IDE paraphernalia
+.idea
+*.swp
+*.swo
+.DS_Store
+
+# Common editor / temporary files
+*~
+*.tmp
+.DS_Store
+
+# release artifacts
+_releasenotes
