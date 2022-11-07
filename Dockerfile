@@ -1,5 +1,5 @@
 # ArgoCD Base
-FROM argoproj/argocd:v2.5.0
+FROM argoproj/argocd:v2.5.2
 
 # Dependencies versions
 
