@@ -4,7 +4,7 @@ FROM argoproj/argocd:v2.5.2
 # Dependencies versions
 
 # renovate: datasource=github-tags depName=helmfile/helmfile extractVersion=^v(?<version>.*)$
-ARG HELMFILE_VERSION=0.147.0
+ARG HELMFILE_VERSION=0.148.1
 # renovate: datasource=github-tags depName=helm/helm
 ARG HELM_VERSION=v3.10.1
 ARG HELM_LOCATION="https://get.helm.sh"
