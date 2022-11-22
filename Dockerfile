@@ -6,7 +6,7 @@ FROM argoproj/argocd:v2.5.2
 # renovate: datasource=github-tags depName=helmfile/helmfile extractVersion=^v(?<version>.*)$
 ARG HELMFILE_VERSION=0.148.1
 # renovate: datasource=github-tags depName=helm/helm
-ARG HELM_VERSION=v3.10.1
+ARG HELM_VERSION=v3.10.2
 ARG HELM_LOCATION="https://get.helm.sh"
 ARG HELM_FILENAME="helm-${HELM_VERSION}-linux-amd64.tar.gz"
 # renovate: datasource=github-tags depName=mozilla/sops
