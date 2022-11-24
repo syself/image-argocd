@@ -1,5 +1,5 @@
 # ArgoCD Base
-FROM argoproj/argocd:v2.5.2
+FROM quay.io/syself/argocd:argocd-alpha.0
 
 # Dependencies versions
 
