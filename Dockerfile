@@ -1,5 +1,5 @@
 # ArgoCD Base
-FROM quay.io/syself/argocd:argocd-alpha.0
+FROM quay.io/syself/argocd:dev-a6851a967-dirty
 
 # Dependencies versions
 
