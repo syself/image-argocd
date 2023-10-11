@@ -10,7 +10,7 @@ ARG HELM_VERSION=v3.10.2
 ARG HELM_LOCATION="https://get.helm.sh"
 ARG HELM_FILENAME="helm-${HELM_VERSION}-linux-amd64.tar.gz"
 # renovate: datasource=github-tags depName=mozilla/sops
-ARG SOPS_VERSION=3.7.3
+ARG SOPS_VERSION=v3.8.1
 # renovate: datasource=github-tags depName=databus23/helm-diff extractVersion=^v(?<version>.*)$
 ARG HELM_DIFF_VERSION=3.6.0
 # renovate: datasource=github-tags depName=jkroepke/helm-secrets extractVersion=^v(?<version>.*)$
