@@ -4,7 +4,7 @@ FROM quay.io/syself/argocd:argocd-alpha.5
 # Dependencies versions
 
 # renovate: datasource=github-tags depName=helmfile/helmfile extractVersion=^v(?<version>.*)$
-ARG HELMFILE_VERSION=0.148.1
+ARG HELMFILE_VERSION=0.160.0
 # renovate: datasource=github-tags depName=helm/helm
 ARG HELM_VERSION=v3.10.2
 ARG HELM_LOCATION="https://get.helm.sh"
